@@ -1,0 +1,43 @@
+.App {
+  text-align: center;
+}
+
+.App-body {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+
+.App-body button {
+  background-color: green;
+  min-height: 30px;
+  min-width: 200px;
+  font-size: 18px;
+  font-weight:bold;
+  margin: 10px;
+  color: white;
+}
+
+.App-employees {
+  font-size: 18px;
+  font-weight:bold;
+  margin: 10px;
+  color: white;
+}
+
+.App-employees div {
+  font-size: 16px;
+  font-weight: normal;
+  margin-top: 3px;
+  color: white;
+}
+
+
+
+

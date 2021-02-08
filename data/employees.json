@@ -1,0 +1,30 @@
+[  
+    {  
+       "id": "E1001",  
+       "firstName":"Ajeet",  
+       "lastName":"Kumar",  
+       "password": "pass123",  
+       "companyId": "com-102"  
+    },     
+    {  
+       "id": "E1002",  
+       "firstName":"Mohan",  
+       "lastName":"Bhargav",  
+       "password": "pass123",  
+       "companyId": "com-101"  
+    },  
+    {  
+       "id": "E1003",  
+       "firstName":"Rashmi",  
+       "lastName":"Bansal",  
+       "password": "pass123",  
+       "companyId": "com-101"  
+    },
+    {  
+        "id": "E1004",  
+        "firstName":"guoping",  
+        "lastName":"wu",  
+        "password": "pass123567",  
+        "companyId": "com-1013"  
+     }  
+ ]  
