@@ -1,6 +1,8 @@
 type Query {  
-   hello:String  
    employees:[Employee]  
+   companies:[Company]
+   employeesById(id:ID!):[Employee] 
+   employeesAtCoompany(companyId:ID!):[Employee] 
 }  
 type Employee {  
    id:ID!  
@@ -8,4 +10,10 @@ type Employee {
    lastName:String  
    password:String  
    companyId:String  
-}  
+} 
+
+type Company {     
+   id: ID!  
+   name: String  
+   location: String
+} 

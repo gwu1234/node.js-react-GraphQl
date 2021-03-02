@@ -10,21 +10,28 @@
        "id": "E1002",  
        "firstName":"Mohan",  
        "lastName":"Bhargav",  
-       "password": "pass123",  
+       "password": "pass456",  
        "companyId": "com-101"  
     },  
     {  
        "id": "E1003",  
        "firstName":"Rashmi",  
        "lastName":"Bansal",  
-       "password": "pass123",  
+       "password": "pass789",  
        "companyId": "com-101"  
     },
     {  
         "id": "E1004",  
         "firstName":"guoping",  
         "lastName":"wu",  
-        "password": "pass123567",  
-        "companyId": "com-1013"  
-     }  
+        "password": "pass12a",  
+        "companyId": "com-102"  
+     },
+     {  
+      "id": "E1005",  
+      "firstName":"allen",  
+      "lastName":"dubois",  
+      "password": "pass34b",  
+      "companyId": "com-102"  
+   }  
  ]  
