@@ -42,7 +42,7 @@ const fetchEmployees = async () => {
 
 ## How to test on GraphiQL
 
-find all employees:
+### find all employees:
 
 { employees {
 
@@ -51,6 +51,42 @@ find all employees:
    firstName,
 
 }}
+
+### find all companies:
+
+{companies {
+
+   id,
+
+   name
+
+}}
+
+### find an employee of a given employee id:
+
+employeesById(id:"E1001") {  
+
+     id, 
+
+     firstName,
+
+     lastName
+
+  }  
+
+}  
+
+### find all employees from a company of a given company id:
+
+{employeesAtCoompany(companyId: "com-102") {
+
+     firstName,
+
+     lastName
+
+   }
+
+}
 
 
 
