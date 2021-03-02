@@ -4,7 +4,9 @@ This project was bootstrapped with [Create React App]
 
 ## How to Query Graphql Server from React Client
 
-const fetchEmployees = async () => {
+### fetch all employees
+
+const fetchAllEmployees = async () => {
 
       const response =  await fetch('http://localhost:4000/graphql', {
 
@@ -21,6 +23,46 @@ const fetchEmployees = async () => {
       setEmployees(rsponseBody.data.employees)
 
 }
+
+### fetch employee by Id 
+
+const fetchEmployee = async () => {
+
+      const response =  await fetch('http://localhost:4000/graphql', {
+
+          method:'POST',
+
+          headers:{'content-type':'application/json'},
+
+          body:JSON.stringify({query:'{employeesById(id:"E1001") {id, firstName, lastName}}'})
+
+      })
+
+      const rsponseBody =  await response.json();
+
+      setEmployees(rsponseBody.data.employeesById)
+
+  }
+
+### fetch Companies
+
+const fetchCompanies = async () => {
+
+      const response =  await fetch('http://localhost:4000/graphql', {
+
+         method:'POST',
+
+         headers:{'content-type':'application/json'},
+
+         body:JSON.stringify({query:'{companies {id,name, location}}'})
+       
+      })
+
+      const rsponseBody =  await response.json();
+      
+      setCompanies(rsponseBody.data.companies)
+
+  }
 
 ## How to Query Graphql Server from GraphiQL
 
