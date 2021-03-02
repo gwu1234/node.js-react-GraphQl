@@ -52,6 +52,10 @@ const fetchEmployees = async () => {
 
 }}
 
+mapped to resolver:
+
+employees:() => db.employees.list()
+
 ### find all companies:
 
 {companies {
@@ -61,6 +65,10 @@ const fetchEmployees = async () => {
    name
 
 }}
+
+mapped to resolver:
+
+companies:() => db.companies.list() 
 
 ### find an employee of a given employee id:
 
@@ -76,6 +84,13 @@ employeesById(id:"E1001") {
 
 }  
 
+mapped to resolver:
+
+employeesById: (obj, args, context, info) => 
+      
+  db.employees.list().filter((employee => employee.id === args.id))
+   
+
 ### find all employees from a company of a given company id:
 
 {employeesAtCoompany(companyId: "com-102") {
@@ -86,6 +101,16 @@ employeesById(id:"E1001") {
 
    }
 
+}
+
+mapped to resolver :
+
+employeesAtCoompany: (obj, args, context, info) => {
+      
+   return db.employees.list().filter((employee=> employee.companyId 
+   
+   === args.companyId))
+   
 }
 
 
