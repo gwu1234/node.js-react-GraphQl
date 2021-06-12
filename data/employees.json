@@ -33,5 +33,19 @@
       "lastName":"dubois",  
       "password": "pass34b",  
       "companyId": "com-102"  
-   }  
+   },    {  
+      "id": "E1006",  
+      "firstName":"Guoping Junior",  
+      "lastName":"wu",  
+      "password": "pass456",  
+      "companyId": "com-103"  
+   },
+   {  
+    "id": "E1007",  
+    "firstName":"Allen Senior",  
+    "lastName":"dubois",  
+    "password": "pass987",  
+    "companyId": "com-103"  
+ } 
+
  ]  

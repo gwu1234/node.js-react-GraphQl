@@ -2,7 +2,7 @@ type Query {
    employees:[Employee]  
    companies:[Company]
    employeesById(id:ID!):[Employee] 
-   employeesAtCoompany(companyId:ID!):[Employee] 
+   employeesAtCompany(companyId:ID!):[Employee] 
 }  
 type Employee {  
    id:ID!  

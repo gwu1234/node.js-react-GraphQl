@@ -10,5 +10,11 @@
        "name": "TCS",  
        "location": "Mumbai",  
        "rating":4.5  
-    }  
+    },
+    {  
+      "id": "com-103",  
+      "name": "GST",  
+      "location": "Montreal",  
+      "rating":4.7  
+   }  
  ]  

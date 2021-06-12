@@ -10,7 +10,7 @@ const Query = {
       return db.employees.list().filter((employee => employee.id === args.id))
    },
    // gind all employees of company whose companyId is args.companyId
-   employeesAtCoompany: (obj, args, context, info) => {
+   employeesAtCompany: (obj, args, context, info) => {
       console.log(args.companyId)
       return db.employees.list().filter((employee=> employee.companyId === args.companyId))
    }
