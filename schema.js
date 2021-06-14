@@ -6,18 +6,26 @@ const { GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLSchema, GraphQLList
 var employees = db.employees.list()
 var companies = db.companies.list() 
 
-const Employee = new GraphQLObjectType({ 
+const EmployeeType = new GraphQLObjectType({ 
     name: "Employee",
     fields: ()=>({
         id: {type: GraphQLString}, 
         firstName: {type: GraphQLString}, 
         lastName:  {type: GraphQLString}, 
         password:  {type: GraphQLString}, 
-        companyId: {type: GraphQLString}  
+        companyId: {type: GraphQLString},
+        company: {
+            type: CompanyType,
+            resolve(parent, args){
+                console.log(parent);
+                let found = companies.find((company => parent.companyId === company.id))
+                return found;
+            }
+        } 
     })
  })
  
-const Company = new GraphQLObjectType({ 
+const CompanyType = new GraphQLObjectType({ 
     name: "Company",
     fields: ()=>({
         id: {type: GraphQLString}, 
@@ -38,19 +46,19 @@ const RootQuery = new GraphQLObjectType({
             }
         },
         companies: {
-            type: new GraphQLList(Company),
+            type: new GraphQLList(CompanyType),
             resolve(parent, args){
                 return companies;
             }
         },
         employees: {
-            type: new GraphQLList(Employee),
+            type: new GraphQLList(EmployeeType),
             resolve(parent, args){
                 return employees;
             }
         },
         employeesById: {
-            type: Employee,
+            type: EmployeeType,
             args: { id: { type: GraphQLString } },
             resolve(parent, args) {
                 console.log(args.id)
@@ -59,7 +67,7 @@ const RootQuery = new GraphQLObjectType({
             }
          },
          employeesAtCompany: {
-            type: new GraphQLList(Employee),
+            type: new GraphQLList(EmployeeType),
             args: { companyId: { type: GraphQLString } },
             resolve(parent, args) {
                 console.log(args.companyId)
