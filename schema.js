@@ -1,7 +1,7 @@
 const graphql = require('graphql');
 const _ = require('lodash');
 const db = require('./db') 
-const { GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLID,GraphQLSchema, GraphQLList } = graphql;
+const { GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLID,GraphQLSchema, GraphQLList, GraphQLFloat } = graphql;
 
 var employees = db.employees.list()
 var companies = db.companies.list() 
@@ -31,7 +31,7 @@ const CompanyType = new GraphQLObjectType({
         id: {type: GraphQLID}, 
         name: {type: GraphQLString}, 
         location:  {type: GraphQLString},
-        rating: {type: GraphQLInt},
+        rating: {type: GraphQLFloat},
         employee: {
             type: GraphQLList(EmployeeType),
             resolve(parent, args){
@@ -86,6 +86,55 @@ const RootQuery = new GraphQLObjectType({
     }
 });
 
+const Mutation = new GraphQLObjectType({
+    name: 'Mutation',
+    fields: {
+        addCompany: {
+            type: CompanyType,
+            args: {
+                id: { type: GraphQLID },  
+                name: { type: GraphQLString },  
+                location: { type: GraphQLString },  
+                rating: { type: GraphQLFloat }
+            },
+            resolve(parent, args){
+                let company = {
+                    id: args.id,
+                    name: args.name,
+                    location: args.location,
+                    rating: args.rating
+                };
+                //console.log (company)
+                let id = db.companies.create(company);
+                //console.log (id) 
+                return company;
+            }
+        },
+        addEmployee: {
+            type: EmployeeType,
+            args: {
+                id: { type: GraphQLID },  
+                firstName: { type: GraphQLString }, 
+                lastName: { type: GraphQLString }, 
+                password: { type: GraphQLString },  
+                companyId: { type: GraphQLID }
+            },
+            resolve(parent, args){
+                let employee = {
+                    id: args.id,
+                    firstName: args.firstName,
+                    lastName: args.lastName,
+                    password: args.password,
+                    companyId: args.companyId
+                };
+                let id = db.employees.create(employee);
+                return employee;
+            }
+        }
+    }
+});
+
 module.exports = new GraphQLSchema({
-    query: RootQuery
+    query: RootQuery,
+    mutation: Mutation
 });

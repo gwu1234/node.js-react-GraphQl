@@ -155,5 +155,39 @@ employeesAtCoompany: (obj, args, context, info) => {
    
 }
 
+## mutation:
+
+### addCompany
+
+mutation {
+
+  addCompany (id: "com-106", name:"Costume", location:"Toronto", rating: 4.04) {
+
+      id,
+
+      name,
+
+      location,
+
+      rating
+
+  }
+
+}
+
+### addEmployee
+
+mutation {
+
+  addEmployee (id: "e1009", firstName:"James", lastName:"Yong", password:"Toronto", companyId: "com-105") {
+    id,
+
+    firstName,
+
+    companyId,
+
+  }
+  
+}
 
 

@@ -1,20 +1,38 @@
-[  
-    {  
-       "id": "com-101",  
-       "name": "HCL",  
-       "location": "Noida",  
-       "rating":5.0  
-    },   
-    {  
-       "id": "com-102",  
-       "name": "TCS",  
-       "location": "Mumbai",  
-       "rating":4.5  
-    },
-    {  
-      "id": "com-103",  
-      "name": "GST",  
-      "location": "Montreal",  
-      "rating":4.7  
-   }  
- ]  
+[
+  {
+    "id": "com-101",
+    "name": "HCL",
+    "location": "Noida",
+    "rating": 5
+  },
+  {
+    "id": "com-102",
+    "name": "TCS",
+    "location": "Mumbai",
+    "rating": 4.5
+  },
+  {
+    "id": "com-103",
+    "name": "GST",
+    "location": "Montreal",
+    "rating": 4.7
+  },
+  {
+    "id": "com-104",
+    "name": "SIO",
+    "location": "Ottawa",
+    "rating": 4.9
+  },
+  {
+    "id": "com-105",
+    "name": "Costume",
+    "location": "Toronto",
+    "rating": 4.3
+  },
+  {
+    "id": "com-106",
+    "name": "Costume",
+    "location": "Toronto",
+    "rating": 4.04
+  }
+]
