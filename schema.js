@@ -1,7 +1,7 @@
 const graphql = require('graphql');
 const _ = require('lodash');
 const db = require('./db') 
-const { GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLSchema, GraphQLList } = graphql;
+const { GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLID,GraphQLSchema, GraphQLList } = graphql;
 
 var employees = db.employees.list()
 var companies = db.companies.list() 
@@ -9,15 +9,15 @@ var companies = db.companies.list()
 const EmployeeType = new GraphQLObjectType({ 
     name: "Employee",
     fields: ()=>({
-        id: {type: GraphQLString}, 
+        id: {type: GraphQLID}, 
         firstName: {type: GraphQLString}, 
         lastName:  {type: GraphQLString}, 
         password:  {type: GraphQLString}, 
-        companyId: {type: GraphQLString},
+        companyId: {type: GraphQLID},
         company: {
             type: CompanyType,
             resolve(parent, args){
-                console.log(parent);
+                //console.log(parent);
                 let found = companies.find((company => parent.companyId === company.id))
                 return found;
             }
@@ -28,7 +28,7 @@ const EmployeeType = new GraphQLObjectType({
 const CompanyType = new GraphQLObjectType({ 
     name: "Company",
     fields: ()=>({
-        id: {type: GraphQLString}, 
+        id: {type: GraphQLID}, 
         name: {type: GraphQLString}, 
         location:  {type: GraphQLString},
         rating: {type: GraphQLInt}
@@ -61,7 +61,7 @@ const RootQuery = new GraphQLObjectType({
             type: EmployeeType,
             args: { id: { type: GraphQLString } },
             resolve(parent, args) {
-                console.log(args.id)
+                //console.log(args.id)
                 let found = employees.find((employee => employee.id === args.id))
                 return found
             }
@@ -70,7 +70,7 @@ const RootQuery = new GraphQLObjectType({
             type: new GraphQLList(EmployeeType),
             args: { companyId: { type: GraphQLString } },
             resolve(parent, args) {
-                console.log(args.companyId)
+                //console.log(args.companyId)
                 let found = employees.filter((employee=> employee.companyId === args.companyId))
                 return found
             }
