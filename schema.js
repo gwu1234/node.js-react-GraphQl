@@ -31,7 +31,15 @@ const CompanyType = new GraphQLObjectType({
         id: {type: GraphQLID}, 
         name: {type: GraphQLString}, 
         location:  {type: GraphQLString},
-        rating: {type: GraphQLInt}
+        rating: {type: GraphQLInt},
+        employee: {
+            type: GraphQLList(EmployeeType),
+            resolve(parent, args){
+                //console.log(parent);
+                let found = employees.filter((employee => parent.id === employee.companyId))
+                return found;
+            }
+        } 
     })
 })
 
